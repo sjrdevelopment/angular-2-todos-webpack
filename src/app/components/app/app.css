@@ -1,0 +1,42 @@
+.main {
+	height:100%;
+	text-align: center;
+	padding: 7% 40px;
+}
+
+.main * {
+	z-index:1;
+}
+
+.main:before {
+	content: ' ';
+	background-image: url(src/assets/images/main-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	-webkit-filter: blur(7px);
+}
+
+.main:after {
+	background-color:white;
+	opacity:0.4;
+	position:absolute;
+	top:0;
+	bottom:0;
+	right:0;
+	left:0;
+	content: ' ';
+	z-index:-1;
+}
+
+.heading {
+	font-family: 'Lobster', cursive;
+	font-size: 32px;
+}
