@@ -1,6 +1,8 @@
 import {Component, Input, ViewChild} from '@angular/core'
 import {TodoService} from '../../services/todo/todo.service'
 
+var Myo = require('myo')
+
 @Component ({
 	selector: 'todos',
 	template: `
@@ -67,6 +69,47 @@ export class TodosComponent {
 	ngAfterViewInit() {
 		console.log('view init')
 		this.vc.nativeElement.focus();
+
+		var self = this
+
+		var myMyo;
+
+		Myo.onError = function () {  
+		    console.log("Woah, couldn't connect to Myo Connect");
+		}
+
+		Myo.on('fist', function(){  
+		   console.log('Fist!');
+
+		   self.onItemSelected({target:{dataset:{indexid: 0}}}) 
+		   
+		});
+
+		Myo.on('fingers_spread', function(){  
+		   console.log('fingers_spread!');
+		   self.onItemRemove(0) 
+		   
+		});
+
+		Myo.on('wave_in', function(){  
+		   console.log('Wave In!');
+	
+		});
+
+		Myo.on('wave_out', function(){  
+		   console.log('Wave Out!');
+		
+		});
+
+		Myo.on('connected', function(){  
+			console.log('connected')
+		    myMyo = this;
+
+		});
+
+
+		Myo.connect()
+
 	}
 
 	constructor(private todoService: TodoService) {
