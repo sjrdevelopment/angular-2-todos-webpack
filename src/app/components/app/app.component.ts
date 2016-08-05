@@ -1,15 +1,15 @@
 import {Component} from '@angular/core';
-import {TodosComponent} from '../todos/todos.component';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
     selector: 'my-app',
     template: `
-    	<div class="main">
-    		<h1 class="heading">Hello Angular Todos</h1>
-    		<todos [thisIsPassed]="passedVar"></todos>
+    	<div class="stuff">
+    		<h1 class="heading">Learning Angular 2</h1>
+    		<router-outlet></router-outlet>
     	</div>
     `,
-    directives: [TodosComponent],
+    directives: [ROUTER_DIRECTIVES],
     styleUrls: ['app.css']
 })
 export class AppComponent {

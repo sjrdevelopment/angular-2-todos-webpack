@@ -70,6 +70,6 @@ export class TodosComponent {
 	}
 
 	constructor(private todoService: TodoService) {
-		this.todos = todoService.getTodos()
+		todoService.getTodos().then(todos => this.todos = todos);
 	}
 }

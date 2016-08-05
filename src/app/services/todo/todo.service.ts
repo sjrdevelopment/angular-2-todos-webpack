@@ -17,7 +17,7 @@ export class TodoService {
 	];
 
 	getTodos() {
-		return this.todos
+		return Promise.resolve(this.todos)
 	}
 
 	addTodo(newTodoName: string) {
